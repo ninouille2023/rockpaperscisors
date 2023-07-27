@@ -62,7 +62,7 @@ paper_img = ImageTk.PhotoImage(Image.open("Image/feuille.jpg"))
 scissors_img = ImageTk.PhotoImage(Image.open("Image/ciseaux.jpg"))
 
 # Création des widget avec les images
-user_label = tk.Label(fenetre, text="Choisissez : ")
+user_label = tk.Label(fenetre, text="Choisissez : ", bg='#055a6c', fg='white')
 user_label.pack(pady=10)
 
 rock_button = tk.Button(fenetre, image=rock_img, command=lambda : play("Pierre"))
@@ -75,37 +75,40 @@ scissors_button = tk.Button(fenetre, image=scissors_img, command=lambda : play("
 scissors_button.pack(side=tk.LEFT, padx=10)
 
 # Etiqueetes pour afficher les images jouées
-user_img_label = tk.Label(fenetre, image=None) # Pas d'image de départ
+user_img_label = tk.Label(fenetre, image=None, bg='#7a99ab') # Pas d'image de départ
 user_img_label.pack(pady=10)
 
-computer_img_label = tk.Label(fenetre, image=None) # Pas d'image de départ
+computer_img_label = tk.Label(fenetre, image=None, bg='#7a99ab') # Pas d'image de départ
 computer_img_label.pack(pady=10)
 
-result_label = tk.Label(fenetre, textvariable=result_var)
-result_label.pack(pady=20)
+result_label = tk.Label(fenetre, textvariable=result_var, bg='#7a99ab')
+result_label.pack(pady=30)
 
 # Création d'une frame pour les score
-score_frame = tk.Frame(fenetre)
-score_frame.pack()
+score_frame = tk.Frame(fenetre, bg='#055a6c')
+score_frame.pack() 
 
-player_score_label = tk.Label(score_frame, text="Score J1 :")
+player_score_label = tk.Label(score_frame, text="Score J1 :", bg='#055a6c', fg='white')
 player_score_label.pack(side=tk.LEFT, padx=10)
 
-player_score_display = tk.Label(score_frame, textvariable=player_score_var)
+player_score_display = tk.Label(score_frame, textvariable=player_score_var, bg='#055a6c', fg='white')
 player_score_display.pack(side=tk.LEFT, padx=10)
 
-computer_score_label = tk.Label(score_frame, text="Score Ordinateur :")
+computer_score_label = tk.Label(score_frame, text="Score Ordinateur :", bg='#055a6c', fg='white')
 computer_score_label.pack(side=tk.LEFT, padx=10)
 
-computer_score_display = tk.Label(score_frame, textvariable=computer_score_var)
+computer_score_display = tk.Label(score_frame, textvariable=computer_score_var, bg='#055a6c', fg='white')
 computer_score_display.pack(side=tk.LEFT, padx=10)
 
 # Gestion de l'historique et de l'affichage
-history_label = tk.Label(fenetre, text="Historique des coups : ")
+history_label = tk.Label(fenetre, text="Historique des coups :", bg='#055a6c', fg='white')
 history_label.pack(pady=10)
 
-history_listbox = tk.Listbox(fenetre, width=40, height=6)
+history_listbox = tk.Listbox(fenetre, width=40, height=15, bg='#055a6c', fg='white')
 history_listbox.pack()
+
+fenetre.geometry("800x700")
+fenetre.configure(bg='#7a99ab') 
 
 
 fenetre.mainloop()
